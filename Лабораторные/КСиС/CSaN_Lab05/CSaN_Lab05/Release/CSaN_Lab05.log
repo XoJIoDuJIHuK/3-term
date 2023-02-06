@@ -1,0 +1,22 @@
+﻿  CSaN_Lab05.cpp
+D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab05\CSaN_Lab05\CSaN_Lab05.cpp(14,1): warning C4005: IP_DEST_NET_UNREACHABLE: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(173): message : см. предыдущее определение "IP_DEST_NET_UNREACHABLE"
+D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab05\CSaN_Lab05\CSaN_Lab05.cpp(15,1): warning C4005: IP_DEST_HOST_UNREACHABLE: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(174): message : см. предыдущее определение "IP_DEST_HOST_UNREACHABLE"
+D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab05\CSaN_Lab05\CSaN_Lab05.cpp(16,1): warning C4005: IP_DEST_PROT_UNREACHABLE: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(175): message : см. предыдущее определение "IP_DEST_PROT_UNREACHABLE"
+D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab05\CSaN_Lab05\CSaN_Lab05.cpp(17,1): warning C4005: IP_DEST_PORT_UNREACHABLE: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(176): message : см. предыдущее определение "IP_DEST_PORT_UNREACHABLE"
+D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab05\CSaN_Lab05\CSaN_Lab05.cpp(18,1): warning C4005: IP_REQ_TIMED_OUT: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(181): message : см. предыдущее определение "IP_REQ_TIMED_OUT"
+D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab05\CSaN_Lab05\CSaN_Lab05.cpp(19,1): warning C4005: IP_BAD_REQ: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(182): message : см. предыдущее определение "IP_BAD_REQ"
+D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab05\CSaN_Lab05\CSaN_Lab05.cpp(20,1): warning C4005: IP_BAD_ROUTE: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(183): message : см. предыдущее определение "IP_BAD_ROUTE"
+D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab05\CSaN_Lab05\CSaN_Lab05.cpp(21,1): warning C4005: IP_TTL_EXPIRED_TRANSIT: изменение макроопределения
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\ipexport.h(184): message : см. предыдущее определение "IP_TTL_EXPIRED_TRANSIT"
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 12 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  CSaN_Lab05.vcxproj -> D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab05\Release\CSaN_Lab05.exe

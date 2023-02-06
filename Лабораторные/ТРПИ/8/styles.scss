@@ -1,0 +1,262 @@
+/* -----  google Font  -----*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+ 
+body {
+ margin: 0;
+ padding: 0;
+ font-family: Roboto, sans-serif;
+ background-color: black;
+}
+
+.error {
+    border-width: 5px;
+    border-color: red;
+}
+
+.form-wrapper {
+    width: 420px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+
+    > label.tab {
+        display: inline-block;
+        background-color: red;
+        color: white;
+        font-weight: 600;
+        padding: 15px;
+        cursor: pointer;
+    }
+    >label::before {
+        font-weight: normal;
+        font-size: 16px;
+        margin-right: 5px;
+        content: '\f090';
+        font-family: 'FontAwesome';
+    }
+    label[for="tab-2"]::before {
+        content: '\f234';
+    }
+
+    input[type="radio"] {
+        display: none;;
+    }
+    input[name="radio-tab"]:checked + label {
+        background-color: white;
+        color: red;
+    }
+
+    #tab-1:checked ~ #form-1,
+    #tab-2:checked ~ #form-2 {
+        display: block;
+        padding: 30px;
+        background-color: white;
+    }
+
+    form.tab-form {
+        display: none;
+        
+        .submitInput {
+            display: none;
+        }
+
+        #validateCheckbox {
+            display: none;
+        }
+        a {
+            text-decoration: none;
+            transition: 0.5s;
+            color: red;
+        }
+        .social
+        {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 30px;
+            li {
+                position: relative;
+            }
+            a {
+                display: block;
+                width: 40px;
+                height: 40ps;
+                text-align: center;
+                line-height: 40px;
+                > div::before,
+                > div::after {
+                    transform: scaleY(0);
+                    content: "";
+                    position: absolute;
+                    background: red;
+                    width: 1px;
+                    height: 100%;
+                    transition: transform 0.5s;
+                }
+                > div::before {
+                    transform-origin: bottom;
+                    left: 0;
+                }
+                > div::after {
+                    right: 0;
+                    transform-origin: top;
+                }
+            }
+            a::before,
+            a::after {
+                transform: scaleX(0);
+                content: "";
+                position: absolute;
+                background: red;
+                width: 100%;
+                height: 1px;
+                left: 0;
+                transition: transform 0.5s;
+            }
+            a::before {
+                transform-origin: left;
+            }
+            a::after {
+                transform-origin: right;
+            }
+            a:hover::before {
+                transform: scaleX(1);
+                transform-origin: right;
+            }
+            a:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+            a:hover > div::before {
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+            a:hover > div::after {
+                transform: scaleY(1);
+                transform-origin: bottom;
+            }
+        }
+        
+        .input-wrapper {
+            position: relative;
+
+            input {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                border: 0;
+                outline: none;
+                padding: 12px 14px;
+                font-size: 16px;
+                margin-bottom: 22px;
+                color: red;
+            }
+            input:focus ~ label,
+            input:valid ~ label {
+                top: -15px;
+                left: 0;
+                font-size: 16px;
+                color: red;
+            }
+
+            label {
+                position: absolute;
+                color: rgba(0, 0, 0, 0.7);
+                left: 14px;
+                top: 12px;
+                transition: 0.5s;
+                pointer-events: none;
+            }
+        }        
+
+        .button {
+            display: block;
+            position: relative;
+            width: 100%;
+            background-color: red;
+            color: white;
+            font-size: 18px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            text-transform: uppercase;
+            overflow: hidden;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            z-index: 1;
+            font-weight: 600;
+            border-bottom: 4px solid rgb(255, 69, 69);
+        }
+
+        .button::before,
+        .button::after {
+            content: "";
+            z-index: -1;
+            display: block;
+            position: absolute;
+            transition: 0.2s;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(169, 0, 0);
+            left: -100%;
+        }
+        .button::after {
+            background-color: rgb(255, 69, 69);
+            transition-delay: 0.5;
+            left: 0;
+            top: 100%
+        }
+        .button:hover::before {
+            left: 0;
+        }
+        .button:hover::after {
+            top: 0;
+        }
+
+        .forgot-data {
+            margin-top: 15px;
+            display: block;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .recover {
+            margin-top: 15px;
+            font-size: 12px;
+            #recover-checkbox {
+                display: none;
+            }
+            #recover-checkbox:checked + label::before {
+                border-top: 2px solid transparent;
+                border-left: 2px solid transparent;
+                border-right: 2px solid #408cc2;
+                border-bottom: 2px solid #408cc2;
+                transform: rotate(40deg);
+                width: 12px;
+                height: 22px;
+                top: -8px;
+            }
+
+            label[for="recover-checkbox"] {
+                cursor: pointer;
+                padding-left: 35px;
+                display: block;
+                width: 260px;
+                position: relative;
+            }
+            label[for="recover-checkbox"]::before {
+                content: "";
+                position: absolute;
+                border: 2px solid #c4c9c9;
+                width: 18px;
+                height: 18px;
+                top: 0;
+                border-radius: 3px;
+                left: 0;transition: 0.2s;
+            }
+        }
+    }
+}

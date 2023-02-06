@@ -1,0 +1,4 @@
+﻿  KSIS_Lab8.cpp
+D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab08\CSaN_Lab08\KSIS_Lab8.cpp(175,20): warning C4244: +=: преобразование "double" в "unsigned int", возможна потеря данных
+D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab08\CSaN_Lab08\KSIS_Lab8.cpp(273,13): warning C4101: a: неиспользованная локальная переменная
+  CSaN_Lab08.vcxproj -> D:\_УЧЁБА_\Лабораторные работы\КСиС\CSaN_Lab08\x64\Debug\CSaN_Lab08.exe

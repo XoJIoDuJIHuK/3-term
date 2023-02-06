@@ -1,0 +1,278 @@
+/* -----  google Font  -----*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  background-color: black;
+}
+
+.error {
+  border-width: 5px;
+  border-color: red;
+}
+
+.form-wrapper {
+  width: 420px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+}
+.form-wrapper > label.tab {
+  display: inline-block;
+  background-color: red;
+  color: white;
+  font-weight: 600;
+  padding: 15px;
+  cursor: pointer;
+}
+.form-wrapper > label::before {
+  font-weight: normal;
+  font-size: 16px;
+  margin-right: 5px;
+  content: "\f090";
+  font-family: "FontAwesome";
+}
+.form-wrapper label[for=tab-2]::before {
+  content: "\f234";
+}
+.form-wrapper input[type=radio] {
+  display: none;
+}
+.form-wrapper input[name=radio-tab]:checked + label {
+  background-color: white;
+  color: red;
+}
+.form-wrapper #tab-1:checked ~ #form-1,
+.form-wrapper #tab-2:checked ~ #form-2 {
+  display: block;
+  padding: 30px;
+  background-color: white;
+}
+.form-wrapper form.tab-form {
+  display: none;
+}
+.form-wrapper form.tab-form .submitInput {
+  display: none;
+}
+.form-wrapper form.tab-form #validateCheckbox {
+  display: none;
+}
+.form-wrapper form.tab-form a {
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: red;
+}
+.form-wrapper form.tab-form .social {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 30px;
+}
+.form-wrapper form.tab-form .social li {
+  position: relative;
+}
+.form-wrapper form.tab-form .social a {
+  display: block;
+  width: 40px;
+  height: 40ps;
+  text-align: center;
+  line-height: 40px;
+}
+.form-wrapper form.tab-form .social a > div::before,
+.form-wrapper form.tab-form .social a > div::after {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  content: "";
+  position: absolute;
+  background: red;
+  width: 1px;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+.form-wrapper form.tab-form .social a > div::before {
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  left: 0;
+}
+.form-wrapper form.tab-form .social a > div::after {
+  right: 0;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+.form-wrapper form.tab-form .social a::before,
+.form-wrapper form.tab-form .social a::after {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  content: "";
+  position: absolute;
+  background: red;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+.form-wrapper form.tab-form .social a::before {
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+.form-wrapper form.tab-form .social a::after {
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+.form-wrapper form.tab-form .social a:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+.form-wrapper form.tab-form .social a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+.form-wrapper form.tab-form .social a:hover > div::before {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+.form-wrapper form.tab-form .social a:hover > div::after {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+.form-wrapper form.tab-form .input-wrapper {
+  position: relative;
+}
+.form-wrapper form.tab-form .input-wrapper input {
+  display: block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0;
+  outline: none;
+  padding: 12px 14px;
+  font-size: 16px;
+  margin-bottom: 22px;
+  color: red;
+}
+.form-wrapper form.tab-form .input-wrapper input:focus ~ label,
+.form-wrapper form.tab-form .input-wrapper input:valid ~ label {
+  top: -15px;
+  left: 0;
+  font-size: 16px;
+  color: red;
+}
+.form-wrapper form.tab-form .input-wrapper label {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.7);
+  left: 14px;
+  top: 12px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.form-wrapper form.tab-form .button {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: red;
+  color: white;
+  font-size: 18px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  text-transform: uppercase;
+  overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  z-index: 1;
+  font-weight: 600;
+  border-bottom: 4px solid rgb(255, 69, 69);
+}
+.form-wrapper form.tab-form .button::before,
+.form-wrapper form.tab-form .button::after {
+  content: "";
+  z-index: -1;
+  display: block;
+  position: absolute;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(169, 0, 0);
+  left: -100%;
+}
+.form-wrapper form.tab-form .button::after {
+  background-color: rgb(255, 69, 69);
+  -webkit-transition-delay: 0.5;
+          transition-delay: 0.5;
+  left: 0;
+  top: 100%;
+}
+.form-wrapper form.tab-form .button:hover::before {
+  left: 0;
+}
+.form-wrapper form.tab-form .button:hover::after {
+  top: 0;
+}
+.form-wrapper form.tab-form .forgot-data {
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+.form-wrapper form.tab-form .recover {
+  margin-top: 15px;
+  font-size: 12px;
+}
+.form-wrapper form.tab-form .recover #recover-checkbox {
+  display: none;
+}
+.form-wrapper form.tab-form .recover #recover-checkbox:checked + label::before {
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid #408cc2;
+  border-bottom: 2px solid #408cc2;
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+  width: 12px;
+  height: 22px;
+  top: -8px;
+}
+.form-wrapper form.tab-form .recover label[for=recover-checkbox] {
+  cursor: pointer;
+  padding-left: 35px;
+  display: block;
+  width: 260px;
+  position: relative;
+}
+.form-wrapper form.tab-form .recover label[for=recover-checkbox]::before {
+  content: "";
+  position: absolute;
+  border: 2px solid #c4c9c9;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  border-radius: 3px;
+  left: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}

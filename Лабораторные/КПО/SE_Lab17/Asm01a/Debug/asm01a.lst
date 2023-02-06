@@ -1,0 +1,87 @@
+Microsoft (R) Macro Assembler Version 14.33.31630.0	    10/05/22 09:33:24
+asm01a.asm						     Page 1 - 1
+
+
+				.586
+				.MODEL FLAT, STDCALL
+ 00000000			.CODE
+ 00000000			getmin PROC uses EBX ECX EDX ESI, array : DWORD, lengthA : DWORD
+ 00000007  83 45 0C FF			ADD		lengthA, -1
+ 0000000B  8B 55 08			MOV		EDX, array
+ 0000000E  8B 02			MOV		EAX, [EDX]
+ 00000010  8B 4D 0C			MOV		ECX, lengthA
+ 00000013  BE 00000004			MOV		ESI, 4
+ 00000018				cycleStart:
+ 00000018  8B 1C 32			MOV		EBX, [EDX + ESI]
+ 0000001B  3B C3			CMP		EAX, EBX
+ 0000001D  7E 02			JLE		cycleEnd				;если min в EAX меньше либо равно элементу массива, пропускаем присваивание
+ 0000001F  8B C3			MOV		EAX, EBX
+ 00000021				cycleEnd:
+ 00000021  83 C6 04			ADD		ESI, 4
+ 00000024  E2 F2			LOOP	cycleStart
+					RET
+ 0000002E			getmin ENDP
+ 0000002E			getmax PROC uses EBX ECX EDX ESI, array : DWORD, lengthA : DWORD
+ 00000035  83 45 0C FF			ADD		lengthA, -1
+ 00000039  8B 55 08			MOV		EDX, array
+ 0000003C  8B 02			MOV		EAX, [EDX]
+ 0000003E  8B 4D 0C			MOV		ECX, lengthA
+ 00000041  BE 00000004			MOV		ESI, 4
+ 00000046				cycleStart:
+ 00000046  8B 1C 32			MOV		EBX, [EDX + ESI]
+ 00000049  3B C3			CMP		EAX, EBX
+ 0000004B  7D 02			JGE		cycleEnd				;если max в EAX меньше либо равно элементу массива, пропускаем присваивание
+ 0000004D  8B C3			MOV		EAX, EBX
+ 0000004F				cycleEnd:
+ 0000004F  83 C6 04			ADD		ESI, 4
+ 00000052  E2 F2			LOOP	cycleStart
+					RET
+ 0000005C			getmax ENDP
+				END
+Microsoft (R) Macro Assembler Version 14.33.31630.0	    10/05/22 09:33:24
+asm01a.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000005C Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+getmax . . . . . . . . . . . . .	P Near	 0000002E _TEXT	Length= 0000002E Public STDCALL
+  array  . . . . . . . . . . . .	DWord	 bp + 00000008
+  lengthA  . . . . . . . . . . .	DWord	 bp + 0000000C
+  cycleStart . . . . . . . . . .	L Near	 00000046 _TEXT	
+  cycleEnd . . . . . . . . . . .	L Near	 0000004F _TEXT	
+getmin . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000002E Public STDCALL
+  array  . . . . . . . . . . . .	DWord	 bp + 00000008
+  lengthA  . . . . . . . . . . .	DWord	 bp + 0000000C
+  cycleStart . . . . . . . . . .	L Near	 00000018 _TEXT	
+  cycleEnd . . . . . . . . . . .	L Near	 00000021 _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+
+	   0 Warnings
+	   0 Errors

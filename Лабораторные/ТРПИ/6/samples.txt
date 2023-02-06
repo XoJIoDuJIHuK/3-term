@@ -1,0 +1,4 @@
+img/2.png MacBook_Pro_Max $2000 80% 100% Add_to_cart
+img/1.png Lenovo_Legion_15ARH05H $1000 80% 100% Add_to_cart
+img/2.png HP_SMTH_9 $800 80% 100% Add_to_cart
+img/1.png Texet_X-basic $100 80% 100% Add_to_cart

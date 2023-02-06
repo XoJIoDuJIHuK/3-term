@@ -1,0 +1,4 @@
+﻿  adslab5.cpp
+D:\_УЧЁБА_\Лабораторные работы\АиСД\ADS_Lab05\ADS_Lab05\adslab5.cpp(23,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+D:\_УЧЁБА_\Лабораторные работы\АиСД\ADS_Lab05\ADS_Lab05\adslab5.cpp(30,10): warning C4804: <=: небезопасное использование типа "bool" в операции
+  ADS_Lab05.vcxproj -> D:\_УЧЁБА_\Лабораторные работы\АиСД\ADS_Lab05\x64\Debug\ADS_Lab05.exe

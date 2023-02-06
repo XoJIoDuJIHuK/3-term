@@ -1,0 +1,37 @@
+01 tfi(ti,ti)
+02 {
+03 dti;
+04 i=iv(ivi);
+05 ri;
+06 };
+07 tfi(tti,ti)
+08 {
+09 dti;
+10 dtfi(ti,ti,ti);
+11 i=i(i,l,l)vi;
+12 ri;
+13 };
+14 
+15 
+16 
+17 m
+18 {
+19 dti;
+20 dti;
+21 dti;
+22 dti;
+23 dti;
+24 dti;
+25 dtfi(ti);
+26 i=l;
+27 i=l;
+28 i=l;
+29 i=l;
+30 i=i(i,i);
+31 i=i(i,i);
+32 pl;
+33 pi;
+34 pi;
+35 pi(i);
+36 rl;
+37 };

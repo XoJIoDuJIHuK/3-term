@@ -1,0 +1,3 @@
+﻿  Source.cpp
+D:\_УЧЁБА_\Лабораторные работы\КПО\test\test\Source.cpp(7,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  test.vcxproj -> D:\_УЧЁБА_\Лабораторные работы\КПО\test\Debug\test.exe

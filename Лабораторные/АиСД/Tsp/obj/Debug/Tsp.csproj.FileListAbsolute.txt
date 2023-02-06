@@ -1,0 +1,10 @@
+D:\_УЧЁБА_\Лабораторные работы\АиСД\Tsp\bin\Debug\tsp.XML
+D:\_УЧЁБА_\Лабораторные работы\АиСД\Tsp\bin\Debug\tsp.exe
+D:\_УЧЁБА_\Лабораторные работы\АиСД\Tsp\bin\Debug\tsp.pdb
+D:\_УЧЁБА_\Лабораторные работы\АиСД\Tsp\obj\Debug\Tsp.csproj.AssemblyReference.cache
+D:\_УЧЁБА_\Лабораторные работы\АиСД\Tsp\obj\Debug\Tsp.Properties.Resources.resources
+D:\_УЧЁБА_\Лабораторные работы\АиСД\Tsp\obj\Debug\Tsp.TspForm.resources
+D:\_УЧЁБА_\Лабораторные работы\АиСД\Tsp\obj\Debug\Tsp.csproj.GenerateResource.cache
+D:\_УЧЁБА_\Лабораторные работы\АиСД\Tsp\obj\Debug\Tsp.csproj.CoreCompileInputs.cache
+D:\_УЧЁБА_\Лабораторные работы\АиСД\Tsp\obj\Debug\tsp.exe
+D:\_УЧЁБА_\Лабораторные работы\АиСД\Tsp\obj\Debug\tsp.pdb

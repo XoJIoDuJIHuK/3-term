@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>tsp</name>
+    </assembly>
+    <members>
+        <member name="T:Tsp.Cities">
+            <summary>
+            This class contains the list of cities for this test.
+            Each city has a location and the distance information to every other city.
+            </summary>
+        </member>
+        <member name="M:Tsp.Cities.CalculateCityDistances(System.Int32)">
+            <summary>
+            Determine the distances between each city.
+            </summary>
+            <param name="numberOfCloseCities">When creating the initial population of tours, this is a greater chance
+            that a nearby city will be chosen for a link. This is the number of nearby cities that will be considered close.</param>
+        </member>
+        <member name="M:Tsp.Cities.OpenCityList(System.String)">
+            <summary>
+            Open the XML file that contains the list of cities.
+            </summary>
+            <param name="fileName">Name of the XML file.</param>
+            <returns>The city list.</returns>
+            <exception cref="T:System.IO.FileNotFoundException">fileName parameter is invalid.</exception>
+            <exception cref="T:System.InvalidCastException">XML File is not properly formatted.</exception>
+        </member>
+        <member name="T:Tsp.City">
+            <summary>
+            An individual City in our tour.
+            </summary>
+        </member>
+        <member name="M:Tsp.City.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor that provides the city location.
+            </summary>
+            <param name="x">X position of the city.</param>
+            <param name="y">Y position of the city.</param>
+        </member>
+        <member name="F:Tsp.City.location">
+            <summary>
+            Private copy of the location of this city.
+            </summary>
+        </member>
+        <member name="P:Tsp.City.Location">
+            <summary>
+            The location of this city.
+            </summary>
+        </member>
+        <member name="F:Tsp.City.distances">
+            <summary>
+            Private copy of the distance from this city to every other city.
+            The index in this array is the number of the city linked to.
+            </summary>
+        </member>
+        <member name="P:Tsp.City.Distances">
+            <summary>
+            The distance from this city to every other city.
+            </summary>
+        </member>
+        <member name="F:Tsp.City.closeCities">
+            <summary>
+            Private copy of the list of the cities that are closest to this one.
+            </summary>
+        </member>
+        <member name="P:Tsp.City.CloseCities">
+            <summary>
+            A list of the cities that are closest to this one.
+            </summary>
+        </member>
+        <member name="M:Tsp.City.FindClosestCities(System.Int32)">
+            <summary>
+            Find the cities that are closest to this one.
+            </summary>
+            <param name="numberOfCloseCities">When creating the initial population of tours, this is a greater chance
+            that a nearby city will be chosen for a link. This is the number of nearby cities that will be considered close.</param>
+        </member>
+        <member name="T:Tsp.Link">
+            <summary>
+            An individual link between 2 cities in a tour.
+            This city connects to 2 other cities.
+            </summary>
+        </member>
+        <member name="F:Tsp.Link.connection1">
+            <summary>
+            Connection to the first city.
+            </summary>
+        </member>
+        <member name="P:Tsp.Link.Connection1">
+            <summary>
+            Connection to the first city.
+            </summary>
+        </member>
+        <member name="F:Tsp.Link.connection2">
+            <summary>
+            Connection to the second city.
+            </summary>
+        </member>
+        <member name="P:Tsp.Link.Connection2">
+            <summary>
+            Connection to the second city.
+            </summary>
+        </member>
+        <member name="F:Tsp.Population.bestTour">
+            <summary>
+            Private copy of the best tour found so far by the Genetic Algorithm.
+            </summary>
+        </member>
+        <member name="P:Tsp.Population.BestTour">
+            <summary>
+            The best tour found so far by the Genetic Algorithm.
+            </summary>
+        </member>
+        <member name="M:Tsp.Population.CreateRandomPopulation(System.Int32,Tsp.Cities,System.Random,System.Int32)">
+            <summary>
+            Create the initial set of random tours.
+            </summary>
+            <param name="populationSize">Number of tours to create.</param>
+            <param name="cityList">The list of cities in this tour.</param>
+            <param name="rand">Random number generator. We pass around the same random number generator, so that results between runs are consistent.</param>
+            <param name="chanceToUseCloseCity">The odds (out of 100) that a city that is known to be close will be used in any given link.</param>
+        </member>
+        <member name="T:Tsp.Program">
+            <summary>
+            Contains the Main that starts this form.
+            </summary>
+        </member>
+        <member name="M:Tsp.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:Tsp.Tour">
+            <summary>
+            This class represents one instance of a tour through all the cities.
+            </summary>
+        </member>
+        <member name="M:Tsp.Tour.#ctor(System.Int32)">
+            <summary>
+            Constructor that takes a default capacity.
+            </summary>
+            <param name="capacity">Initial size of the tour. Should be the number of cities in the tour.</param>
+        </member>
+        <member name="F:Tsp.Tour.fitness">
+            <summary>
+            Private copy of this fitness of this tour.
+            </summary>
+        </member>
+        <member name="P:Tsp.Tour.Fitness">
+            <summary>
+            The fitness (total tour length) of this tour.
+            </summary>
+        </member>
+        <member name="M:Tsp.Tour.resetTour(System.Int32)">
+            <summary>
+            Creates the tour with the correct number of cities and creates initial connections of all -1.
+            </summary>
+            <param name="numberOfCities"></param>
+        </member>
+        <member name="M:Tsp.Tour.DetermineFitness(Tsp.Cities)">
+            <summary>
+            Determine the fitness (total length) of an individual tour.
+            </summary>
+            <param name="cities">The cities in this tour. Used to get the distance between each city.</param>
+        </member>
+        <member name="M:Tsp.Tour.joinCities(Tsp.Tour,System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Creates a link between 2 cities in a tour, and then updates the city usage.
+            </summary>
+            <param name="tour">The incomplete child tour.</param>
+            <param name="cityUsage">Number of times each city has been used in this tour. Is updated when cities are joined.</param>
+            <param name="city1">The first city in the link.</param>
+            <param name="city2">The second city in the link.</param>
+        </member>
+        <member name="M:Tsp.Tour.findNextCity(Tsp.Tour,Tsp.Tour,Tsp.Cities,System.Int32[],System.Int32)">
+            <summary>
+            Find a link from a given city in the parent tour that can be placed in the child tour.
+            If both links in the parent aren't valid links for the child tour, return -1.
+            </summary>
+            <param name="parent">The parent tour to get the link from.</param>
+            <param name="child">The child tour that the link will be placed in.</param>
+            <param name="cityList">The list of cities in this tour.</param>
+            <param name="cityUsage">Number of times each city has been used in the child.</param>
+            <param name="city">City that we want to link from.</param>
+            <returns>The city to link to in the child tour, or -1 if none are valid.</returns>
+        </member>
+        <member name="M:Tsp.Tour.testConnectionValid(Tsp.Tour,Tsp.Cities,System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Determine if it is OK to connect 2 cities given the existing connections in a child tour.
+            If the two cities can be connected already (witout doing a full tour) then it is an invalid link.
+            </summary>
+            <param name="tour">The incomplete child tour.</param>
+            <param name="cityList">The list of cities in this tour.</param>
+            <param name="cityUsage">Array that contains the number of times each city has been linked.</param>
+            <param name="city1">The first city in the link.</param>
+            <param name="city2">The second city in the link.</param>
+            <returns>True if the connection can be made.</returns>
+        </member>
+        <member name="M:Tsp.Tour.Crossover(Tsp.Tour,Tsp.Tour,Tsp.Cities,System.Random)">
+            <summary>
+            Perform the crossover operation on 2 parent tours to create a new child tour.
+            This function should be called twice to make the 2 children.
+            In the second call, the parent parameters should be swapped.
+            </summary>
+            <param name="parent1">The first parent tour.</param>
+            <param name="parent2">The second parent tour.</param>
+            <param name="cityList">The list of cities in this tour.</param>
+            <param name="rand">Random number generator. We pass around the same random number generator, so that results between runs are consistent.</param>
+            <returns>The child tour.</returns>
+        </member>
+        <member name="M:Tsp.Tour.Mutate(System.Random)">
+            <summary>
+            Randomly change one of the links in this tour.
+            </summary>
+            <param name="rand">Random number generator. We pass around the same random number generator, so that results between runs are consistent.</param>
+        </member>
+        <member name="T:Tsp.Tsp">
+            <summary>
+            This class performs the Travelling Salesman Problem algorithm.
+            </summary>
+        </member>
+        <member name="T:Tsp.Tsp.NewBestTourEventHandler">
+            <summary>
+            Delegate used to raise an event when a new best tour is found.
+            </summary>
+            <param name="sender">Object that generated this event.</param>
+            <param name="e">Event arguments. Contains information about the best tour.</param>
+        </member>
+        <member name="E:Tsp.Tsp.foundNewBestTour">
+            <summary>
+            Event fired when a new best tour is found.
+            </summary>
+        </member>
+        <member name="F:Tsp.Tsp.rand">
+            <summary>
+            Random number generator object.
+            We allow the GUI to set the seed for the random number generator to assist in debugging.
+            This allows errors to be easily reproduced.
+            </summary>
+        </member>
+        <member name="F:Tsp.Tsp.cityList">
+            <summary>
+            The list of cities. This is only used to calculate the distances between the cities.
+            </summary>
+        </member>
+        <member name="F:Tsp.Tsp.population">
+            <summary>
+            The complete list of all the tours.
+            </summary>
+        </member>
+        <member name="F:Tsp.Tsp.halt">
+            <summary>
+            Private copy of a flag that will stop the TSP from calculating any more generations.
+            </summary>
+        </member>
+        <member name="P:Tsp.Tsp.Halt">
+            <summary>
+            The GUI sets this flag to true to stop the TSP algorithm and allow the Begin() function to return.
+            </summary>
+        </member>
+        <member name="M:Tsp.Tsp.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:Tsp.Tsp.Begin(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Tsp.Cities)">
+            <summary>
+            Starts the TSP algorithm.
+            To stop before all generations are calculated, set <see cref="P:Tsp.Tsp.Halt"/> to true.
+            </summary>
+            <param name="populationSize">Number of random tours to create before starting the algorithm.</param>
+            <param name="maxGenerations">Number of times to perform the crossover operation before stopping.</param>
+            <param name="groupSize">Number of tours to examine in each generation. Top 2 are chosen as the parent tours whose children replace the worst 2 tours in the group.</param>
+            <param name="mutation">Odds that a child tour will be mutated..</param>
+            <param name="seed">Seed for the random number generator.</param>
+            <param name="chanceToUseCloseCity">The odds (out of 100) that a city that is known to be close will be used in any given link.</param>
+            <param name="cityList">List of cities in the tour.</param>
+        </member>
+        <member name="M:Tsp.Tsp.makeChildren(System.Int32,System.Int32)">
+            <summary>
+            Randomly select a group of tours from the population. 
+            The top 2 are chosen as the parent tours.
+            Crossover is performed on these 2 tours.
+            The childred tours from this process replace the worst 2 tours in the group.
+            </summary>
+            <param name="groupSize">Number of tours in this group.</param>
+            <param name="mutation">Odds that a child will be mutated.</param>
+        </member>
+        <member name="M:Tsp.Tsp.displayTour(Tsp.Tour,System.Int32,System.Boolean)">
+            <summary>
+            Raise an event to the GUI listener to display a tour.
+            </summary>
+            <param name="bestTour">The best tour the algorithm has found so far.</param>
+            <param name="generationNumber">How many generations have been performed.</param>
+            <param name="complete">Is the TSP algorithm complete.</param>
+        </member>
+        <member name="T:Tsp.TspForm">
+            <summary>
+            Main form for the Travelling Salesman Problem
+            </summary>
+        </member>
+        <member name="F:Tsp.TspForm.cityList">
+            <summary>
+            The list of cities where we are trying to find the best tour.
+            </summary>
+        </member>
+        <member name="F:Tsp.TspForm.tsp">
+            <summary>
+            The class that does all the work in the TSP algorithm.
+            If this is not null, then the algorithm is still running.
+            </summary>
+        </member>
+        <member name="F:Tsp.TspForm.cityImage">
+            <summary>
+            The image that we draw the tour on.
+            </summary>
+        </member>
+        <member name="F:Tsp.TspForm.cityGraphics">
+            <summary>
+            The graphics object for the image that we draw the tour on.
+            </summary>
+        </member>
+        <member name="T:Tsp.TspForm.DrawEventHandler">
+            <summary>
+            Delegate for the thread that runs the TSP algorithm.
+            We use a separate thread so the GUI can redraw as the algorithm runs.
+            </summary>
+            <param name="sender">Object that generated this event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Tsp.TspForm.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Tsp.TspForm.tsp_foundNewBestTour(System.Object,Tsp.TspEventArgs)">
+            <summary>
+            TSP algorithm raised an event that a new best tour was found.
+            We need to do an invoke on the GUI thread before doing any draw code.
+            </summary>
+            <param name="sender">Object that generated this event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Tsp.TspForm.DrawTour(System.Object,Tsp.TspEventArgs)">
+            <summary>
+            A new "best" tour from the TSP algorithm has been received.
+            Draw the tour on the form, and update a couple of status labels.
+            </summary>
+            <param name="sender">Object that generated this event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Tsp.TspForm.DrawCityList(Tsp.Cities)">
+            <summary>
+            Draw just the list of cities.
+            </summary>
+            <param name="cityList">The list of cities to draw.</param>
+        </member>
+        <member name="M:Tsp.TspForm.StartButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            User clicked the start button to start the TSP algorithm.
+            If it is already running, then this button will say stop and we will stop the TSP.
+            Otherwise, 
+            </summary>
+            <param name="sender">Object that generated this event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Tsp.TspForm.BeginTsp(System.Object)">
+            <summary>
+            Starts up the TSP class.
+            This function executes on a thread pool thread.
+            </summary>
+            <param name="stateInfo">Not used</param>
+        </member>
+        <member name="M:Tsp.TspForm.selectFileButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            User is selecting a new city list XML file.
+            Not allowed if running the TSP algorithm.
+            </summary>
+            <param name="sender">Object that generated this event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Tsp.TspForm.openCityListButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            User has chosen to open the 
+            Not allowed if running the TSP algorithm.
+            </summary>
+            <param name="sender">Object that generated this event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Tsp.TspForm.clearCityListButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            User has selected to clear the city list.
+            Not allowed if running the TSP algorithm.
+            </summary>
+            <param name="sender">Object that generated this event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Tsp.TspForm.tourDiagram_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            User clicked a point on the city map.
+            As long as we aren't running the TSP algorithm,
+            place a new city on the map and add it to the city list.
+            </summary>
+            <param name="sender">Object that generated this event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Tsp.TspForm.updateCityCount">
+            <summary>
+            Display the number of cities on the form.
+            </summary>
+        </member>
+        <member name="F:Tsp.TspForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tsp.TspForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tsp.TspForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tsp.TspEventArgs">
+            <summary>
+            Event arguments when the TSP class wants the GUI to draw a tour.
+            </summary>
+        </member>
+        <member name="M:Tsp.TspEventArgs.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="M:Tsp.TspEventArgs.#ctor(Tsp.Cities,Tsp.Tour,System.Int32,System.Boolean)">
+            <summary>
+            Constructor that sets all the properties.
+            </summary>
+            <param name="cityList">The list of cities to draw.</param>
+            <param name="bestTour">The tour that connects all the cities.</param>
+            <param name="generation">Which generation is this.</param>
+            <param name="complete">Is this the last update before we are done.</param>
+        </member>
+        <member name="F:Tsp.TspEventArgs.cityList">
+            <summary>Private copy of the list of cities.</summary>
+        </member>
+        <member name="P:Tsp.TspEventArgs.CityList">
+            <summary>Public property for list of cities.</summary>
+        </member>
+        <member name="F:Tsp.TspEventArgs.bestTour">
+            <summary>Private copy of the tour of the cities.</summary>
+        </member>
+        <member name="P:Tsp.TspEventArgs.BestTour">
+            <summary>Public property for the tour of the cities.</summary>
+        </member>
+        <member name="F:Tsp.TspEventArgs.generation">
+            <summary>Private copy for which generation this tour came from.</summary>
+        </member>
+        <member name="P:Tsp.TspEventArgs.Generation">
+            <summary>Public property for which generation this tour came from.</summary>
+        </member>
+        <member name="F:Tsp.TspEventArgs.complete">
+            <summary>Private copy indicating if the TSP algorithm is complete.</summary>
+        </member>
+        <member name="P:Tsp.TspEventArgs.Complete">
+            <summary>Public property indicating if the TSP algorithm is complete.</summary>
+        </member>
+        <member name="T:Tsp.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Tsp.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Tsp.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

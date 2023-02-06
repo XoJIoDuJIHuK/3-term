@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <title>Форма для авторизации</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+   <script>
+      function Validate(input) {
+         if (input.classList.length < 2)
+		 {
+			switch(input.classList[0])
+         {
+            case "simpleText":
+            {
+				if (input.value.length == 0)
+				{
+					alert("пустое значение");
+					input.classList.add("error");
+                  	input.value = "";
+				} 
+              else if (!/^[A-Z]/.test(input.value[0]))
+               {
+                  alert("Первая буква должна быть заглавной");
+				  input.classList.add("error");
+                  input.value = "";
+               }
+               break;
+            }
+            case "email":
+            {
+				if (input.value.length == 0)
+				{
+					alert("пустое значение");
+					input.classList.add("error");
+                  	input.value = "";
+				} 
+               else if (!input.value.includes("@"))
+               {
+                  alert("Адрес обязан содержать @");
+				  input.classList.add("error");
+                  input.value = "";
+               }
+               break;
+            }
+            case "password":
+            {
+               if (input.value.length < 8)
+               {
+                  alert("пароль на может быть короче 8 символов");
+				  input.classList.add("error");
+                  input.value = "";
+               }
+               break;
+            }
+			case "date":
+            {
+               if (input.value.length == 0)
+               {
+                  alert("Укажите дату");
+				  input.classList.add("error");
+                  input.value = "";
+               }
+			   else
+			   {
+					let currDate = new Date();
+					if (currDate < new Date(input.value))
+					{
+						alert("некорректная дата");
+						input.classList.add("error");
+                  		input.value = "";
+					}
+			   }
+               break;
+            }
+         }
+		 }
+
+      };
+   </script>
+    
+   <div class="form-wrapper">
+      <input type="radio" id="tab-1" name="radio-tab" checked>
+      <label class="tab" for="tab-1" title="Вкладка 1">Авторизация</label>
+      <input type="radio" id="tab-2" name="radio-tab">
+      <label class="tab" for="tab-2" title="Вкладка 2">Регистрация</label>
+      <form class="tab-form" id="form-1" for="tab-1" onsubmit="alert('submit!');return false">
+         <div class="input-wrapper">
+            <input type="text" required class="simpleText" onblur="Validate(this)">
+            <label class="placeholder">Введите фамилию</label>
+         </div>
+         <div class="input-wrapper">
+            <input type="text" required class="simpleText" onblur="Validate(this)">
+            <label class="placeholder">Введите имя</label>
+         </div>
+         <div class="input-wrapper">
+            <input type="date" required class="date" onblur="Validate(this)">
+            <!--<label class="placeholder">Введите дату рождения</label>-->
+         </div>
+         <div class="input-wrapper">
+            <input type="text" required class="email" onblur="Validate(this)">
+            <label class="placeholder">Введите E-mail</label>
+         </div>
+         <div class="input-wrapper">
+            <input type="password" required class="password" onblur="Validate(this)">
+            <label class="placeholder">Введите пароль</label>
+         </div>
+         <input type="checkbox" id="validateCheckbox">
+         <a for="validateCheckbox" href="#" class="button">Войти</a>
+         <ul class="social">
+            <li><a href="#"><div><i class="fa fa-facebook"></i></div></a></li>
+            <li><a href="#"><div><i class="fa fa-twitter"></i></div></a></li>
+            <li><a href="#"><div><i class="fa fa-instagram"></i></div></a></li>
+            <li><a href="#"><div><i class="fa fa-vk"></i></div></a></li>
+            <li><a href="#"><div><i class="fa fa-youtube"></i></div></a></li>
+         </ul>
+         <a href="#" class="forgot-data">Я забыл свой E-mail или пароль</a>
+         <input type="submit" class="submitInput">
+      </form>
+      <form class="tab-form" id="form-2" for="tab-2">
+         <div class="input-wrapper">
+            <input type="text" required>
+            <label class="placeholder">Введите имя</label>
+         </div>
+         <div class="input-wrapper">
+            <input type="text" required>
+            <label class="placeholder">Введите E-mail</label>
+         </div>
+         <div class="input-wrapper">
+            <input type="password" required>
+            <label class="placeholder">Введите пароль</label>
+         </div>
+         <a href="#" class="button">Регистрация</a>
+         <div class="recover">
+            <input type="checkbox" id="recover-checkbox">
+            <label for="recover-checkbox">Ознакомлен(-а) и принимаю <a  href="#">условия регистрации</a></label>
+         </div>
+      </form>
+   </div>
+</body>
+</html>
