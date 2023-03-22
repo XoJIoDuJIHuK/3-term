@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\_УЧЁБА_\\Лабораторные работы\\АиСД\\ADS_Lab10\\ADS_Lab10\\ADS_Lab10.csproj": {}
+    "D:\\_УЧЁБА_\\3 семестр\\3-term\\Лабораторные\\АиСД\\ADS_Lab10\\ADS_Lab10\\ADS_Lab10.csproj": {}
   },
   "projects": {
-    "D:\\_УЧЁБА_\\Лабораторные работы\\АиСД\\ADS_Lab10\\ADS_Lab10\\ADS_Lab10.csproj": {
+    "D:\\_УЧЁБА_\\3 семестр\\3-term\\Лабораторные\\АиСД\\ADS_Lab10\\ADS_Lab10\\ADS_Lab10.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_УЧЁБА_\\Лабораторные работы\\АиСД\\ADS_Lab10\\ADS_Lab10\\ADS_Lab10.csproj",
+        "projectUniqueName": "D:\\_УЧЁБА_\\3 семестр\\3-term\\Лабораторные\\АиСД\\ADS_Lab10\\ADS_Lab10\\ADS_Lab10.csproj",
         "projectName": "ADS_Lab10",
-        "projectPath": "D:\\_УЧЁБА_\\Лабораторные работы\\АиСД\\ADS_Lab10\\ADS_Lab10\\ADS_Lab10.csproj",
+        "projectPath": "D:\\_УЧЁБА_\\3 семестр\\3-term\\Лабораторные\\АиСД\\ADS_Lab10\\ADS_Lab10\\ADS_Lab10.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\_УЧЁБА_\\Лабораторные работы\\АиСД\\ADS_Lab10\\ADS_Lab10\\obj\\",
+        "outputPath": "D:\\_УЧЁБА_\\3 семестр\\3-term\\Лабораторные\\АиСД\\ADS_Lab10\\ADS_Lab10\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
